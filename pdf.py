@@ -1,3 +1,10 @@
+"""
+PDF signing module.
+
+This module provides a function to sign PDF files using a private RSA key and embed the signature
+into the PDF metadata.
+"""
+
 import hashlib
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import hashes, serialization
@@ -6,16 +13,30 @@ from io import BytesIO
 
 
 def sign_pdf(pdf_path, private_key_bytes):
+    """
+    Sign a PDF file with a private RSA key.
+
+    This function creates a hash of the PDF (excluding any prior signature),
+    signs the hash using the private key, and embeds the hexadecimal signature
+    into the PDF metadata under the key `/Signature`.
+
+    :param pdf_path: Path to the input PDF file.
+    :type pdf_path: str
+    :param private_key_bytes: Private RSA key in PEM format as bytes.
+    :type private_key_bytes: bytes
+    :return: Path to the newly signed PDF file.
+    :rtype: str
+    """
     reader = PyPDF2.PdfReader(pdf_path)
     writer = PyPDF2.PdfWriter()
 
-    #Copy all pages from the reader to the writer
+    # Copy all pages from the reader to the writer
     for page in reader.pages:
         writer.add_page(page)
 
     metadata = reader.metadata or {}
     metadata_without_signature = dict(metadata)
-    metadata_without_signature.pop("/Signature", None)  # Just in case there is a signature already
+    metadata_without_signature.pop("/Signature", None)  # Remove existing signature if present
 
     # Add metadata without signature
     writer.add_metadata(metadata_without_signature)
@@ -25,9 +46,10 @@ def sign_pdf(pdf_path, private_key_bytes):
     writer.write(temp_stream)
     pdf_data_without_signature = temp_stream.getvalue()
 
-    # Calculate the hash of the PDF data without signature
+    # Calculate the SHA-256 hash of the PDF data
     hash_digest = hashlib.sha256(pdf_data_without_signature).digest()
 
+    # Load the private RSA key
     private_key = serialization.load_pem_private_key(
         private_key_bytes,
         password=None
@@ -40,11 +62,11 @@ def sign_pdf(pdf_path, private_key_bytes):
         hashes.SHA256()
     )
 
-    # Add the signature to the metadata
+    # Embed the signature in the metadata
     metadata_with_signature = dict(metadata_without_signature)
     metadata_with_signature["/Signature"] = signature.hex()
 
-    # Create a new PDF writer with the signature in metadata
+    # Write the final PDF with the signature
     writer_with_signature = PyPDF2.PdfWriter()
     for page in reader.pages:
         writer_with_signature.add_page(page)

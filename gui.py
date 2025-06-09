@@ -1,3 +1,8 @@
+## @file gui.py
+#  @brief GUI for the application in tkinter
+#  @details This application provides a user interface for generating and saving RSA keys,
+#  signing PDF files, and verifying digital signatures.
+
 import tkinter as tk
 from tkinter import filedialog, simpledialog, messagebox
 from rsa_generator import KeyGenerator
@@ -8,7 +13,18 @@ from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 class GUI:
+    """
+    Main graphical user interface class.
+
+    Handles RSA key generation, PDF signing, and signature verification using a USB drive.
+    """
+
     def __init__(self, window):
+        """
+        Initialize the GUI and set up widgets.
+
+        :param window: The main tkinter window.
+        """
         self.window = window
         window.title("Qualified Electronic Signature - PAdES")
         window.geometry("600x600")
@@ -42,17 +58,22 @@ class GUI:
         self.verify_button.pack(pady=5)
 
     def poll_usb_drives(self):
+        """
+        Periodically poll for USB drives and update the UI.
+        """
         self.known_drives, updated, _ = get_usb_update(self.known_drives)
         if updated:
             self.update_drive_buttons()
         self.window.after(self.polling_delay, self.poll_usb_drives)
 
     def update_drive_buttons(self):
+        """
+        Update radio buttons for detected USB drives.
+        """
         for widget in self.drives_frame.winfo_children():
             widget.destroy()
 
         if self.known_drives:
-            # Selecting the first mountpoint if none is selected
             if not self.selected_mountpoint.get() or self.selected_mountpoint.get() not in [d.mountpoint for d in self.known_drives]:
                 self.selected_mountpoint.set(self.known_drives[0].mountpoint)
 
@@ -66,6 +87,11 @@ class GUI:
             self.selected_mountpoint.set("")
 
     def generate_keys(self):
+        """
+        Generate RSA key pair and save them to the selected USB drive.
+
+        Encrypts the private key using the user's PIN.
+        """
         pin = self.pin_entry.get()
         if not pin:
             messagebox.showwarning("Missing PIN", "Please enter your PIN")
@@ -80,6 +106,12 @@ class GUI:
         self.pin_label.config(text="Keys generated and saved successfully")
 
     def save_keys(self, private_key, public_key):
+        """
+        Prompt user to select paths and save the private and public keys.
+
+        :param private_key: The encrypted private key in bytes.
+        :param public_key: The public key in PEM format.
+        """
         if not self.selected_mountpoint.get():
             messagebox.showerror("No USB", "No USB selected")
             return
@@ -101,6 +133,13 @@ class GUI:
                 f.write(public_key)
 
     def decrypt_private_key(self, encrypted_data, pin):
+        """
+        Decrypt the private key using the provided PIN.
+
+        :param encrypted_data: Encrypted key data read from file.
+        :param pin: User's PIN as a string.
+        :return: Decrypted private key in bytes.
+        """
         salt = encrypted_data[:16]
         nonce = encrypted_data[16:28]
         ciphertext = encrypted_data[28:]
@@ -111,6 +150,11 @@ class GUI:
         return aesgcm.decrypt(nonce, ciphertext, None)
 
     def sign_pdf(self):
+        """
+        Sign a selected PDF file using the private key stored on USB.
+
+        Prompts the user for a PIN and file paths, then saves the signed PDF.
+        """
         if not self.selected_mountpoint.get():
             messagebox.showerror("USB", "No USB drive selected.")
             return
@@ -142,6 +186,11 @@ class GUI:
         messagebox.showinfo("Success", f"PDF signed and saved to:\n{output_path}")
 
     def verify_signature(self):
+        """
+        Verify the digital signature of a selected PDF file.
+
+        Uses a public key in PEM format.
+        """
         pdf_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
         if not pdf_path:
             return

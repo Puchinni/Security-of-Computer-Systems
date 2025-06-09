@@ -1,0 +1,28 @@
+PROJECT_NAME           = "PAdES Signer"
+
+BRIEF                  = "Tool for Emulating the PAdES Qualified Electronic Signature"
+
+INPUT                  = .
+
+FILE_PATTERNS          = *.py
+
+RECURSIVE              = YES
+
+OUTPUT_DIRECTORY       = ./docs
+
+GENERATE_HTML          = YES
+
+EXTRACT_ALL            = YES
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_JAVA   = NO
+OPTIMIZE_FOR_FORTRAN   = NO
+OPTIMIZE_OUTPUT_VHDL   = NO
+OPTIMIZE_OUTPUT_SLICE  = NO
+OPTIMIZE_OUTPUT_FOR_PYTHON = YES
+
+
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+FULL_PATH_NAMES        = NO
