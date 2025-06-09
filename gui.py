@@ -6,6 +6,8 @@ from pdf import *
 from verify_pdf import *
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+import os
+import uuid
 
 class GUI:
     def __init__(self, window):
@@ -83,22 +85,30 @@ class GUI:
         if not self.selected_mountpoint.get():
             messagebox.showerror("No USB", "No USB selected")
             return
+        
+        usb_path = self.selected_mountpoint.get()
+        
+        try:
+            unique_id = str(uuid.uuid4())
+            private_key_filename = f"private_{unique_id}.key"
+            private_key_path = os.path.join(usb_path, private_key_filename)
 
-        private_key_path = filedialog.asksaveasfilename(title="Private key path",
-                                                        defaultextension=".key",
-                                                        filetypes=[("KEY files", "*.key")],
-                                                        initialdir=self.selected_mountpoint.get())
-
-        if private_key_path:
             with open(private_key_path, "wb") as f:
                 f.write(private_key)
+                
+            key_list_path = os.path.join(usb_path, "key_list.txt")
+            with open(key_list_path, "a") as f:
+                f.write(f"{private_key_filename}\n")
 
-        public_key_path = filedialog.asksaveasfilename(title="Public key path",
-                                                       defaultextension=".pem",
-                                                       filetypes=[("PEM files", "*.pem")])
-        if public_key_path:
-            with open(public_key_path, "wb") as f:
-                f.write(public_key)
+            public_key_path = filedialog.asksaveasfilename(title="Public key path",
+                                                        defaultextension=".pem",
+                                                        filetypes=[("PEM files", "*.pem")])
+            if public_key_path:
+                with open(public_key_path, "wb") as f:
+                    f.write(public_key)
+                    
+        except Exception as e:
+            messagebox.showerror("Save Error", str(e))
 
     def decrypt_private_key(self, encrypted_data, pin):
         salt = encrypted_data[:16]
@@ -109,7 +119,7 @@ class GUI:
         key = kdf.derive(pin.encode())
         aesgcm = AESGCM(key)
         return aesgcm.decrypt(nonce, ciphertext, None)
-
+    
     def sign_pdf(self):
         if not self.selected_mountpoint.get():
             messagebox.showerror("USB", "No USB drive selected.")
@@ -123,17 +133,31 @@ class GUI:
         if not pdf_path:
             return
 
-        key_path = filedialog.askopenfilename(title="Select Encrypted Private Key",
-                                              initialdir=self.selected_mountpoint.get(),
-                                              filetypes=[("KEY files", "*.key")])
-        if not key_path:
+        usb_path = self.selected_mountpoint.get()
+        key_list_path = os.path.join(usb_path, "key_list.txt")
+
+        if not os.path.exists(key_list_path):
+            messagebox.showerror("Missing Keys", "No key_list.txt found on USB.")
             return
 
         try:
+            with open(key_list_path, "r") as f:
+                all_keys = [line.strip() for line in f if line.strip()]
+
+            if not all_keys:
+                raise FileNotFoundError("No private keys listed in key_list.txt")
+
+            latest_key_filename = all_keys[-1] 
+            key_path = os.path.join(usb_path, latest_key_filename)
+
+            if not os.path.exists(key_path):
+                raise FileNotFoundError(f"Private key file not found: {latest_key_filename}")
+
             with open(key_path, "rb") as f:
                 encrypted_data = f.read()
 
             private_key_bytes = self.decrypt_private_key(encrypted_data, pin)
+
         except Exception as e:
             messagebox.showerror("Decryption Error", str(e))
             return
