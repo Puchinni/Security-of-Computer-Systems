@@ -1,0 +1,40 @@
+\doxysection{pdf Namespace Reference}
+\hypertarget{namespacepdf}{}\label{namespacepdf}\index{pdf@{pdf}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacepdf_add68f14c842e4b1423e7c6daf7bed6ab}{sign\+\_\+pdf}} (pdf\+\_\+path, private\+\_\+key\+\_\+bytes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}PDF signing module.
+
+This module provides a function to sign PDF files using a private RSA key and embed the signature
+into the PDF metadata.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespacepdf_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacepdf_add68f14c842e4b1423e7c6daf7bed6ab}\index{pdf@{pdf}!sign\_pdf@{sign\_pdf}}
+\index{sign\_pdf@{sign\_pdf}!pdf@{pdf}}
+\doxysubsubsection{\texorpdfstring{sign\_pdf()}{sign\_pdf()}}
+{\footnotesize\ttfamily \label{namespacepdf_add68f14c842e4b1423e7c6daf7bed6ab} 
+pdf.\+sign\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{pdf\+\_\+path}{, }\item[{}]{private\+\_\+key\+\_\+bytes}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sign a PDF file with a private RSA key.
+
+This function creates a hash of the PDF (excluding any prior signature),
+signs the hash using the private key, and embeds the hexadecimal signature
+into the PDF metadata under the key `/Signature`.
+
+:param pdf_path: Path to the input PDF file.
+:type pdf_path: str
+:param private_key_bytes: Private RSA key in PEM format as bytes.
+:type private_key_bytes: bytes
+:return: Path to the newly signed PDF file.
+:rtype: str
+\end{DoxyVerb}
+ 

@@ -1,0 +1,226 @@
+\doxysection{gui.\+GUI Class Reference}
+\hypertarget{classgui_1_1_g_u_i}{}\label{classgui_1_1_g_u_i}\index{gui.GUI@{gui.GUI}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a1a4e5946f5acd8b03b141ecb36906568}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}})
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a07cfc5c120bc725a84f1a2ae952b4eb2}{poll\+\_\+usb\+\_\+drives}} (self)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ad215e632b30b974c35d4837dda645a22}{update\+\_\+drive\+\_\+buttons}} (self)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ae7dde7a4442779fa670fecf961998101}{generate\+\_\+keys}} (self)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a4036d7a76a02c84790ca033c069951cb}{save\+\_\+keys}} (self, private\+\_\+key, public\+\_\+key)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ab7e07fe9d2079e86c46c610799ad3c54}{decrypt\+\_\+private\+\_\+key}} (self, encrypted\+\_\+data, pin)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_aab4862e7f5e184d009a0ee3a316754a1}{sign\+\_\+pdf}} (self)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a367d455930d675b0e5e621714f680077}{verify\+\_\+signature}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}} = window
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a17e32e4c79223a4eef630b9a9715d5dc}{pin\+\_\+label}} = tk.\+Label(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Enter your PIN"{})
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a2486fe47062492db9631a2e8ab00d6fc}{pin\+\_\+entry}} = tk.\+Entry(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, show="{}\texorpdfstring{$\ast$}{*}"{})
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a00790a8befa4f2f6624da77660fad3b4}{generate\+\_\+button}} = tk.\+Button(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Generate RSA keys"{}, command=self.\+generate\+\_\+keys)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_add3c369fe8db640e0d1ff922dd3beda7}{drives\+\_\+label}} = tk.\+Label(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Detected USB drives\+:"{})
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a60219a6b0b2ce7090879c8aa5f47ba67}{drives\+\_\+frame}} = tk.\+Frame(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}})
+\item 
+int \mbox{\hyperlink{classgui_1_1_g_u_i_aa4f257f7ad1506348f7e8cd24812fdd7}{polling\+\_\+delay}} = 2000
+\item 
+list \mbox{\hyperlink{classgui_1_1_g_u_i_adc9cd8096ca2406d030ad29a21150774}{known\+\_\+drives}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_af5a4cf3ba324ed68734e6b940152a795}{selected\+\_\+mountpoint}} = tk.\+String\+Var()
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a36e0a966f8300267125aeee9b0e44c72}{sign\+\_\+button}} = tk.\+Button(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Sign PDF"{}, command=self.\+sign\+\_\+pdf)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a8242804142d572a052be8c70d83cad77}{verify\+\_\+button}} = tk.\+Button(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Verify Signature"{}, command=self.\+verify\+\_\+signature)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ad58a463f8bff91a463dd507fc136fd3d}{poll\+\_\+usb\+\_\+drives}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Main graphical user interface class.
+
+Handles RSA key generation, PDF signing, and signature verification using a USB drive.
+\end{DoxyVerb}
+ 
+
+\label{doc-constructors}
+\Hypertarget{classgui_1_1_g_u_i_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgui_1_1_g_u_i_a1a4e5946f5acd8b03b141ecb36906568}\index{gui.GUI@{gui.GUI}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a1a4e5946f5acd8b03b141ecb36906568} 
+gui.\+GUI.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{window}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialize the GUI and set up widgets.
+
+:param window: The main tkinter window.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{classgui_1_1_g_u_i_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1_g_u_i_ab7e07fe9d2079e86c46c610799ad3c54}\index{gui.GUI@{gui.GUI}!decrypt\_private\_key@{decrypt\_private\_key}}
+\index{decrypt\_private\_key@{decrypt\_private\_key}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{decrypt\_private\_key()}{decrypt\_private\_key()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ab7e07fe9d2079e86c46c610799ad3c54} 
+gui.\+GUI.\+decrypt\+\_\+private\+\_\+key (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{encrypted\+\_\+data}{, }\item[{}]{pin}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Decrypt the private key using the provided PIN.
+
+:param encrypted_data: Encrypted key data read from file.
+:param pin: User's PIN as a string.
+:return: Decrypted private key in bytes.
+\end{DoxyVerb}
+ \Hypertarget{classgui_1_1_g_u_i_ae7dde7a4442779fa670fecf961998101}\index{gui.GUI@{gui.GUI}!generate\_keys@{generate\_keys}}
+\index{generate\_keys@{generate\_keys}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{generate\_keys()}{generate\_keys()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ae7dde7a4442779fa670fecf961998101} 
+gui.\+GUI.\+generate\+\_\+keys (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Generate RSA key pair and save them to the selected USB drive.
+
+Encrypts the private key using the user's PIN.
+\end{DoxyVerb}
+ \Hypertarget{classgui_1_1_g_u_i_a07cfc5c120bc725a84f1a2ae952b4eb2}\index{gui.GUI@{gui.GUI}!poll\_usb\_drives@{poll\_usb\_drives}}
+\index{poll\_usb\_drives@{poll\_usb\_drives}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{poll\_usb\_drives()}{poll\_usb\_drives()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a07cfc5c120bc725a84f1a2ae952b4eb2} 
+gui.\+GUI.\+poll\+\_\+usb\+\_\+drives (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Periodically poll for USB drives and update the UI.
+\end{DoxyVerb}
+ \Hypertarget{classgui_1_1_g_u_i_a4036d7a76a02c84790ca033c069951cb}\index{gui.GUI@{gui.GUI}!save\_keys@{save\_keys}}
+\index{save\_keys@{save\_keys}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{save\_keys()}{save\_keys()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a4036d7a76a02c84790ca033c069951cb} 
+gui.\+GUI.\+save\+\_\+keys (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{private\+\_\+key}{, }\item[{}]{public\+\_\+key}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Prompt user to select paths and save the private and public keys.
+
+:param private_key: The encrypted private key in bytes.
+:param public_key: The public key in PEM format.
+\end{DoxyVerb}
+ \Hypertarget{classgui_1_1_g_u_i_aab4862e7f5e184d009a0ee3a316754a1}\index{gui.GUI@{gui.GUI}!sign\_pdf@{sign\_pdf}}
+\index{sign\_pdf@{sign\_pdf}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{sign\_pdf()}{sign\_pdf()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_aab4862e7f5e184d009a0ee3a316754a1} 
+gui.\+GUI.\+sign\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sign a selected PDF file using the private key stored on USB.
+
+Prompts the user for a PIN and file paths, then saves the signed PDF.
+\end{DoxyVerb}
+ \Hypertarget{classgui_1_1_g_u_i_ad215e632b30b974c35d4837dda645a22}\index{gui.GUI@{gui.GUI}!update\_drive\_buttons@{update\_drive\_buttons}}
+\index{update\_drive\_buttons@{update\_drive\_buttons}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{update\_drive\_buttons()}{update\_drive\_buttons()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ad215e632b30b974c35d4837dda645a22} 
+gui.\+GUI.\+update\+\_\+drive\+\_\+buttons (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Update radio buttons for detected USB drives.
+\end{DoxyVerb}
+ \Hypertarget{classgui_1_1_g_u_i_a367d455930d675b0e5e621714f680077}\index{gui.GUI@{gui.GUI}!verify\_signature@{verify\_signature}}
+\index{verify\_signature@{verify\_signature}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{verify\_signature()}{verify\_signature()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a367d455930d675b0e5e621714f680077} 
+gui.\+GUI.\+verify\+\_\+signature (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Verify the digital signature of a selected PDF file.
+
+Uses a public key in PEM format.
+\end{DoxyVerb}
+ 
+
+\label{doc-variable-members}
+\Hypertarget{classgui_1_1_g_u_i_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgui_1_1_g_u_i_a60219a6b0b2ce7090879c8aa5f47ba67}\index{gui.GUI@{gui.GUI}!drives\_frame@{drives\_frame}}
+\index{drives\_frame@{drives\_frame}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{drives\_frame}{drives\_frame}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a60219a6b0b2ce7090879c8aa5f47ba67} 
+gui.\+GUI.\+drives\+\_\+frame = tk.\+Frame(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}})}
+
+\Hypertarget{classgui_1_1_g_u_i_add3c369fe8db640e0d1ff922dd3beda7}\index{gui.GUI@{gui.GUI}!drives\_label@{drives\_label}}
+\index{drives\_label@{drives\_label}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{drives\_label}{drives\_label}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_add3c369fe8db640e0d1ff922dd3beda7} 
+gui.\+GUI.\+drives\+\_\+label = tk.\+Label(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Detected USB drives\+:"{})}
+
+\Hypertarget{classgui_1_1_g_u_i_a00790a8befa4f2f6624da77660fad3b4}\index{gui.GUI@{gui.GUI}!generate\_button@{generate\_button}}
+\index{generate\_button@{generate\_button}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{generate\_button}{generate\_button}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a00790a8befa4f2f6624da77660fad3b4} 
+gui.\+GUI.\+generate\+\_\+button = tk.\+Button(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Generate RSA keys"{}, command=self.\+generate\+\_\+keys)}
+
+\Hypertarget{classgui_1_1_g_u_i_adc9cd8096ca2406d030ad29a21150774}\index{gui.GUI@{gui.GUI}!known\_drives@{known\_drives}}
+\index{known\_drives@{known\_drives}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{known\_drives}{known\_drives}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_adc9cd8096ca2406d030ad29a21150774} 
+gui.\+GUI.\+known\+\_\+drives = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{classgui_1_1_g_u_i_a2486fe47062492db9631a2e8ab00d6fc}\index{gui.GUI@{gui.GUI}!pin\_entry@{pin\_entry}}
+\index{pin\_entry@{pin\_entry}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{pin\_entry}{pin\_entry}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a2486fe47062492db9631a2e8ab00d6fc} 
+gui.\+GUI.\+pin\+\_\+entry = tk.\+Entry(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, show="{}\texorpdfstring{$\ast$}{*}"{})}
+
+\Hypertarget{classgui_1_1_g_u_i_a17e32e4c79223a4eef630b9a9715d5dc}\index{gui.GUI@{gui.GUI}!pin\_label@{pin\_label}}
+\index{pin\_label@{pin\_label}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{pin\_label}{pin\_label}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a17e32e4c79223a4eef630b9a9715d5dc} 
+gui.\+GUI.\+pin\+\_\+label = tk.\+Label(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Enter your PIN"{})}
+
+\Hypertarget{classgui_1_1_g_u_i_ad58a463f8bff91a463dd507fc136fd3d}\index{gui.GUI@{gui.GUI}!poll\_usb\_drives@{poll\_usb\_drives}}
+\index{poll\_usb\_drives@{poll\_usb\_drives}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{poll\_usb\_drives}{poll\_usb\_drives}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ad58a463f8bff91a463dd507fc136fd3d} 
+gui.\+GUI.\+poll\+\_\+usb\+\_\+drives}
+
+\Hypertarget{classgui_1_1_g_u_i_aa4f257f7ad1506348f7e8cd24812fdd7}\index{gui.GUI@{gui.GUI}!polling\_delay@{polling\_delay}}
+\index{polling\_delay@{polling\_delay}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{polling\_delay}{polling\_delay}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_aa4f257f7ad1506348f7e8cd24812fdd7} 
+gui.\+GUI.\+polling\+\_\+delay = 2000}
+
+\Hypertarget{classgui_1_1_g_u_i_af5a4cf3ba324ed68734e6b940152a795}\index{gui.GUI@{gui.GUI}!selected\_mountpoint@{selected\_mountpoint}}
+\index{selected\_mountpoint@{selected\_mountpoint}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{selected\_mountpoint}{selected\_mountpoint}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_af5a4cf3ba324ed68734e6b940152a795} 
+gui.\+GUI.\+selected\+\_\+mountpoint = tk.\+String\+Var()}
+
+\Hypertarget{classgui_1_1_g_u_i_a36e0a966f8300267125aeee9b0e44c72}\index{gui.GUI@{gui.GUI}!sign\_button@{sign\_button}}
+\index{sign\_button@{sign\_button}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{sign\_button}{sign\_button}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a36e0a966f8300267125aeee9b0e44c72} 
+gui.\+GUI.\+sign\+\_\+button = tk.\+Button(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Sign PDF"{}, command=self.\+sign\+\_\+pdf)}
+
+\Hypertarget{classgui_1_1_g_u_i_a8242804142d572a052be8c70d83cad77}\index{gui.GUI@{gui.GUI}!verify\_button@{verify\_button}}
+\index{verify\_button@{verify\_button}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{verify\_button}{verify\_button}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a8242804142d572a052be8c70d83cad77} 
+gui.\+GUI.\+verify\+\_\+button = tk.\+Button(\mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}}, text="{}Verify Signature"{}, command=self.\+verify\+\_\+signature)}
+
+\Hypertarget{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}\index{gui.GUI@{gui.GUI}!window@{window}}
+\index{window@{window}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70} 
+gui.\+GUI.\+window = window}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui_8py}{gui.\+py}}\end{DoxyCompactItemize}

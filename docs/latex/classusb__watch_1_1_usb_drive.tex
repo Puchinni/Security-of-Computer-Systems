@@ -1,0 +1,111 @@
+\doxysection{usb\+\_\+watch.\+Usb\+Drive Class Reference}
+\hypertarget{classusb__watch_1_1_usb_drive}{}\label{classusb__watch_1_1_usb_drive}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classusb__watch_1_1_usb_drive_ae8968c4697c317fb960466bdd94486be}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, str \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a29ab38ad1ac29ff7e6f507cebe9783b7}{device}}, str \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a2c9b4376c70cbd54c98c6af02feee8e6}{mountpoint}})
+\item 
+\mbox{\hyperlink{classusb__watch_1_1_usb_drive_a1a63ebad374acba2672348054398bb93}{\+\_\+\+\_\+str\+\_\+\+\_\+}} (self)
+\item 
+\mbox{\hyperlink{classusb__watch_1_1_usb_drive_aa5e1c60800fa56fdd9fd465772e07c20}{\+\_\+\+\_\+repr\+\_\+\+\_\+}} (self)
+\item 
+\mbox{\hyperlink{classusb__watch_1_1_usb_drive_a0cab588f085f052dc73feccdbfeef4f4}{\+\_\+\+\_\+eq\+\_\+\+\_\+}} (self, other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classusb__watch_1_1_usb_drive_a29ab38ad1ac29ff7e6f507cebe9783b7}{device}} = device
+\item 
+\mbox{\hyperlink{classusb__watch_1_1_usb_drive_a2c9b4376c70cbd54c98c6af02feee8e6}{mountpoint}} = mountpoint
+\item 
+list \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a192f68e29fb52e474f314e3d3e7477a3}{keys}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A class representing a mounted USB drive.
+
+:param device: The device path (e.g., /dev/sdb1).
+:type device: str
+:param mountpoint: The mount point of the device (e.g., /media/user/USB).
+:type mountpoint: str
+\end{DoxyVerb}
+ 
+
+\label{doc-constructors}
+\Hypertarget{classusb__watch_1_1_usb_drive_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classusb__watch_1_1_usb_drive_ae8968c4697c317fb960466bdd94486be}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_ae8968c4697c317fb960466bdd94486be} 
+usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{device}{, }\item[{str}]{mountpoint}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classusb__watch_1_1_usb_drive_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classusb__watch_1_1_usb_drive_a0cab588f085f052dc73feccdbfeef4f4}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_eq\_\_@{\_\_eq\_\_}}
+\index{\_\_eq\_\_@{\_\_eq\_\_}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection{\texorpdfstring{\_\_eq\_\_()}{\_\_eq\_\_()}}
+{\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_a0cab588f085f052dc73feccdbfeef4f4} 
+usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+eq\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{other}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Check if two UsbDrive instances represent the same device.
+
+:param other: Another UsbDrive instance.
+:type other: UsbDrive
+:return: True if device and mountpoint match, False otherwise.
+:rtype: bool
+\end{DoxyVerb}
+ \Hypertarget{classusb__watch_1_1_usb_drive_aa5e1c60800fa56fdd9fd465772e07c20}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_repr\_\_@{\_\_repr\_\_}}
+\index{\_\_repr\_\_@{\_\_repr\_\_}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection{\texorpdfstring{\_\_repr\_\_()}{\_\_repr\_\_()}}
+{\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_aa5e1c60800fa56fdd9fd465772e07c20} 
+usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+repr\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return a formal string representation of the USB drive.
+
+:return: Same as __str__.
+:rtype: str
+\end{DoxyVerb}
+ \Hypertarget{classusb__watch_1_1_usb_drive_a1a63ebad374acba2672348054398bb93}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_str\_\_@{\_\_str\_\_}}
+\index{\_\_str\_\_@{\_\_str\_\_}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection{\texorpdfstring{\_\_str\_\_()}{\_\_str\_\_()}}
+{\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_a1a63ebad374acba2672348054398bb93} 
+usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+str\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return a human-readable string representation of the USB drive.
+
+:return: String in the format "device: <device>, mountpoint: <mountpoint>".
+:rtype: str
+\end{DoxyVerb}
+ 
+
+\label{doc-variable-members}
+\Hypertarget{classusb__watch_1_1_usb_drive_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classusb__watch_1_1_usb_drive_a29ab38ad1ac29ff7e6f507cebe9783b7}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!device@{device}}
+\index{device@{device}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_a29ab38ad1ac29ff7e6f507cebe9783b7} 
+usb\+\_\+watch.\+Usb\+Drive.\+device = device}
+
+\Hypertarget{classusb__watch_1_1_usb_drive_a192f68e29fb52e474f314e3d3e7477a3}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!keys@{keys}}
+\index{keys@{keys}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_a192f68e29fb52e474f314e3d3e7477a3} 
+list usb\+\_\+watch.\+Usb\+Drive.\+keys = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{classusb__watch_1_1_usb_drive_a2c9b4376c70cbd54c98c6af02feee8e6}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!mountpoint@{mountpoint}}
+\index{mountpoint@{mountpoint}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+\doxysubsubsection{\texorpdfstring{mountpoint}{mountpoint}}
+{\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_a2c9b4376c70cbd54c98c6af02feee8e6} 
+usb\+\_\+watch.\+Usb\+Drive.\+mountpoint = mountpoint}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{usb__watch_8py}{usb\+\_\+watch.\+py}}\end{DoxyCompactItemize}

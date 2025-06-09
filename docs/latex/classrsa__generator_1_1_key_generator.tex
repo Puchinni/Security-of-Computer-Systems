@@ -1,0 +1,55 @@
+\doxysection{rsa\+\_\+generator.\+Key\+Generator Class Reference}
+\hypertarget{classrsa__generator_1_1_key_generator}{}\label{classrsa__generator_1_1_key_generator}\index{rsa\_generator.KeyGenerator@{rsa\_generator.KeyGenerator}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrsa__generator_1_1_key_generator_a0d601e1cefd2f68606f3a7279ae6f6ec}{generate\+\_\+keys}} (self)
+\item 
+\mbox{\hyperlink{classrsa__generator_1_1_key_generator_a67814309c6452849b3023e88a57a80e6}{encode\+\_\+private\+\_\+key}} (self, private\+\_\+key, pin)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A class for generating and encrypting RSA key pairs.
+
+This class generates RSA private/public key pairs and securely encodes
+the private key using a PIN.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{classrsa__generator_1_1_key_generator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrsa__generator_1_1_key_generator_a67814309c6452849b3023e88a57a80e6}\index{rsa\_generator.KeyGenerator@{rsa\_generator.KeyGenerator}!encode\_private\_key@{encode\_private\_key}}
+\index{encode\_private\_key@{encode\_private\_key}!rsa\_generator.KeyGenerator@{rsa\_generator.KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{encode\_private\_key()}{encode\_private\_key()}}
+{\footnotesize\ttfamily \label{classrsa__generator_1_1_key_generator_a67814309c6452849b3023e88a57a80e6} 
+rsa\+\_\+generator.\+Key\+Generator.\+encode\+\_\+private\+\_\+key (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{private\+\_\+key}{, }\item[{}]{pin}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Encrypt the private key using the provided PIN.
+
+Uses Scrypt for key derivation and AES-GCM for authenticated encryption.
+
+:param private_key: The private key to encrypt, in PEM format as bytes.
+:type private_key: bytes
+:param pin: The user's PIN used as the password for key derivation.
+:type pin: str
+:return: The encrypted private key with prepended salt and nonce.
+:rtype: bytes
+\end{DoxyVerb}
+ \Hypertarget{classrsa__generator_1_1_key_generator_a0d601e1cefd2f68606f3a7279ae6f6ec}\index{rsa\_generator.KeyGenerator@{rsa\_generator.KeyGenerator}!generate\_keys@{generate\_keys}}
+\index{generate\_keys@{generate\_keys}!rsa\_generator.KeyGenerator@{rsa\_generator.KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{generate\_keys()}{generate\_keys()}}
+{\footnotesize\ttfamily \label{classrsa__generator_1_1_key_generator_a0d601e1cefd2f68606f3a7279ae6f6ec} 
+rsa\+\_\+generator.\+Key\+Generator.\+generate\+\_\+keys (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Generate an RSA private and public key pair.
+
+:return: A tuple containing the private key and public key in PEM format.
+:rtype: tuple(bytes, bytes)
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{rsa__generator_8py}{rsa\+\_\+generator.\+py}}\end{DoxyCompactItemize}
