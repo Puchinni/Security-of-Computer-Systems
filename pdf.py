@@ -1,8 +1,8 @@
-"""
-PDF signing module.
-
-This module provides a function to sign PDF files using a private RSA key and embed the signature
-into the PDF metadata.
+"""!
+@file pdf.py
+@brief PDF signing module
+@details This module provides a function to sign PDF files using a private RSA key
+and embed the signature into the PDF metadata.
 """
 
 import hashlib
@@ -11,21 +11,20 @@ from cryptography.hazmat.primitives import hashes, serialization
 import PyPDF2
 from io import BytesIO
 
-
 def sign_pdf(pdf_path, private_key_bytes):
-    """
+    """!
     Sign a PDF file with a private RSA key.
 
-    This function creates a hash of the PDF (excluding any prior signature),
-    signs the hash using the private key, and embeds the hexadecimal signature
-    into the PDF metadata under the key `/Signature`.
+    This function creates a SHA-256 hash of the PDF content (excluding any existing signature),
+    signs the hash using the provided private RSA key, and embeds the hexadecimal signature
+    into the PDF's metadata under the key `/Signature`.
 
-    :param pdf_path: Path to the input PDF file.
-    :type pdf_path: str
-    :param private_key_bytes: Private RSA key in PEM format as bytes.
-    :type private_key_bytes: bytes
-    :return: Path to the newly signed PDF file.
-    :rtype: str
+    @param pdf_path: Path to the input PDF file.
+    @type pdf_path: str
+    @param private_key_bytes: Private RSA key in PEM format as bytes.
+    @type private_key_bytes: bytes
+    @return: Path to the newly signed PDF file.
+    @rtype: str
     """
     reader = PyPDF2.PdfReader(pdf_path)
     writer = PyPDF2.PdfWriter()

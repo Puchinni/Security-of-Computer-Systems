@@ -1,7 +1,9 @@
-## @file gui.py
-#  @brief GUI for the application in tkinter
-#  @details This application provides a user interface for generating and saving RSA keys,
-#  signing PDF files, and verifying digital signatures.
+"""!
+@file gui.py
+@brief GUI for the application using tkinter
+@details This application provides a user interface for generating and saving RSA keys,
+signing PDF files, and verifying digital signatures.
+"""
 
 import tkinter as tk
 from tkinter import filedialog, simpledialog, messagebox
@@ -15,17 +17,17 @@ import os
 import uuid
 
 class GUI:
-    """
+    """!
     Main graphical user interface class.
 
     Handles RSA key generation, PDF signing, and signature verification using a USB drive.
     """
 
     def __init__(self, window):
-        """
+        """!
         Initialize the GUI and set up widgets.
 
-        :param window: The main tkinter window.
+        @param window: The main tkinter window.
         """
         self.window = window
         window.title("Qualified Electronic Signature - PAdES")
@@ -60,7 +62,7 @@ class GUI:
         self.verify_button.pack(pady=5)
 
     def poll_usb_drives(self):
-        """
+        """!
         Periodically poll for USB drives and update the UI.
         """
         self.known_drives, updated, _ = get_usb_update(self.known_drives)
@@ -69,7 +71,7 @@ class GUI:
         self.window.after(self.polling_delay, self.poll_usb_drives)
 
     def update_drive_buttons(self):
-        """
+        """!
         Update radio buttons for detected USB drives.
         """
         for widget in self.drives_frame.winfo_children():
@@ -89,7 +91,7 @@ class GUI:
             self.selected_mountpoint.set("")
 
     def generate_keys(self):
-        """
+        """!
         Generate RSA key pair and save them to the selected USB drive.
 
         Encrypts the private key using the user's PIN.
@@ -108,11 +110,11 @@ class GUI:
         self.pin_label.config(text="Keys generated and saved successfully")
 
     def save_keys(self, private_key, public_key):
-        """
+        """!
         Prompt user to select paths and save the private and public keys.
 
-        :param private_key: The encrypted private key in bytes.
-        :param public_key: The public key in PEM format.
+        @param private_key: The encrypted private key in bytes.
+        @param public_key: The public key in PEM format.
         """
         if not self.selected_mountpoint.get():
             messagebox.showerror("No USB", "No USB selected")
@@ -143,12 +145,13 @@ class GUI:
             messagebox.showerror("Save Error", str(e))
 
     def decrypt_private_key(self, encrypted_data, pin):
-        """
+        """!
         Decrypt the private key using the provided PIN.
 
-        :param encrypted_data: Encrypted key data read from file.
-        :param pin: User's PIN as a string.
-        :return: Decrypted private key in bytes.
+        @param encrypted_data: Encrypted key data read from file.
+        @param pin: User's PIN as a string.
+        @return: Decrypted private key in bytes.
+        @rtype: bytes
         """
         salt = encrypted_data[:16]
         nonce = encrypted_data[16:28]
@@ -160,7 +163,7 @@ class GUI:
         return aesgcm.decrypt(nonce, ciphertext, None)
     
     def sign_pdf(self):
-        """
+        """!
         Sign a selected PDF file using the private key stored on USB.
 
         Prompts the user for a PIN and file paths, then saves the signed PDF.
@@ -173,17 +176,13 @@ class GUI:
         if not pin:
             return
 
-        pdf_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
-        if not pdf_path:
-            return
-
         usb_path = self.selected_mountpoint.get()
         key_list_path = os.path.join(usb_path, "key_list.txt")
 
         if not os.path.exists(key_list_path):
             messagebox.showerror("Missing Keys", "No key_list.txt found on USB.")
             return
-
+        
         try:
             with open(key_list_path, "r") as f:
                 all_keys = [line.strip() for line in f if line.strip()]
@@ -203,14 +202,19 @@ class GUI:
             private_key_bytes = self.decrypt_private_key(encrypted_data, pin)
 
         except Exception as e:
-            messagebox.showerror("Decryption Error", str(e))
+            messagebox.showerror("Decryption Error", "Error decrypting private key")
             return
+        
+        pdf_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
+        if not pdf_path:
+            return
+
 
         output_path = sign_pdf(pdf_path, private_key_bytes)
         messagebox.showinfo("Success", f"PDF signed and saved to:\n{output_path}")
 
     def verify_signature(self):
-        """
+        """!
         Verify the digital signature of a selected PDF file.
 
         Uses a public key in PEM format.

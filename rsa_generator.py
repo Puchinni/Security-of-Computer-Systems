@@ -1,7 +1,7 @@
-"""
-Key generation and encryption module.
-
-This module provides a class to generate RSA key pairs and encrypt the private key using
+"""!
+@file rsa_generator.py
+@brief Key generation and encryption module
+@details This module provides a class to generate RSA key pairs and encrypt the private key using
 a password (PIN) with Scrypt key derivation and AES-GCM encryption.
 """
 
@@ -14,19 +14,19 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 
 class KeyGenerator:
-    """
+    """!
     A class for generating and encrypting RSA key pairs.
 
     This class generates RSA private/public key pairs and securely encodes
-    the private key using a PIN.
+    the private key using a PIN-based encryption scheme.
     """
 
     def generate_keys(self):
-        """
+        """!
         Generate an RSA private and public key pair.
 
-        :return: A tuple containing the private key and public key in PEM format.
-        :rtype: tuple(bytes, bytes)
+        @return: A tuple containing the private key and public key in PEM format.
+        @rtype: tuple[bytes, bytes]
         """
         key = rsa.generate_private_key(
             backend=default_backend(),
@@ -48,17 +48,18 @@ class KeyGenerator:
         return private_key, public_key
 
     def encode_private_key(self, private_key, pin):
-        """
+        """!
         Encrypt the private key using the provided PIN.
 
         Uses Scrypt for key derivation and AES-GCM for authenticated encryption.
+        The resulting output includes the salt and nonce prepended to the ciphertext.
 
-        :param private_key: The private key to encrypt, in PEM format as bytes.
-        :type private_key: bytes
-        :param pin: The user's PIN used as the password for key derivation.
-        :type pin: str
-        :return: The encrypted private key with prepended salt and nonce.
-        :rtype: bytes
+        @param private_key: The private key to encrypt, in PEM format as bytes.
+        @type private_key: bytes
+        @param pin: The user's PIN used as the password for key derivation.
+        @type pin: str
+        @return: The encrypted private key with prepended salt and nonce.
+        @rtype: bytes
         """
         salt = os.urandom(16)
         kdf = Scrypt(

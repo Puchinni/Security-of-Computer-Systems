@@ -91,18 +91,21 @@ $(function(){initNavTree('classrsa__generator_1_1_key_generator.html','','classr
   <div class="headertitle"><div class="title">rsa_generator.KeyGenerator Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class for generating and encrypting RSA key pairs.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d601e1cefd2f68606f3a7279ae6f6ec" id="r_a0d601e1cefd2f68606f3a7279ae6f6ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d601e1cefd2f68606f3a7279ae6f6ec">generate_keys</a> (self)</td></tr>
+<tr class="memdesc:a0d601e1cefd2f68606f3a7279ae6f6ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate an RSA private and public key pair.  <br /></td></tr>
 <tr class="memitem:a67814309c6452849b3023e88a57a80e6" id="r_a67814309c6452849b3023e88a57a80e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67814309c6452849b3023e88a57a80e6">encode_private_key</a> (self, private_key, pin)</td></tr>
+<tr class="memdesc:a67814309c6452849b3023e88a57a80e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypt the private key using the provided PIN.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">A class for generating and encrypting RSA key pairs.
-
-This class generates RSA private/public key pairs and securely encodes
-the private key using a PIN.
-</pre> </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>A class for generating and encrypting RSA key pairs. </p>
+<p>This class generates RSA private/public key pairs and securely encodes the private key using a PIN-based encryption scheme. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a67814309c6452849b3023e88a57a80e6" name="a67814309c6452849b3023e88a57a80e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67814309c6452849b3023e88a57a80e6">&#9670;&#160;</a></span>encode_private_key()</h2>
 
@@ -126,17 +129,18 @@ the private key using a PIN.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Encrypt the private key using the provided PIN.
 
-Uses Scrypt for key derivation and AES-GCM for authenticated encryption.
+<p>Encrypt the private key using the provided PIN. </p>
+<p>Uses Scrypt for key derivation and AES-GCM for authenticated encryption. The resulting output includes the salt and nonce prepended to the ciphertext.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">private_key</td><td>The private key to encrypt, in PEM format as bytes. @type private_key: bytes </td></tr>
+    <tr><td class="paramname">pin</td><td>The user's PIN used as the password for key derivation. @type pin: str </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: The encrypted private key with prepended salt and nonce. @rtype: bytes </dd></dl>
 
-:param private_key: The private key to encrypt, in PEM format as bytes.
-:type private_key: bytes
-:param pin: The user's PIN used as the password for key derivation.
-:type pin: str
-:return: The encrypted private key with prepended salt and nonce.
-:rtype: bytes
-</pre> 
 </div>
 </div>
 <a id="a0d601e1cefd2f68606f3a7279ae6f6ec" name="a0d601e1cefd2f68606f3a7279ae6f6ec"></a>
@@ -153,11 +157,10 @@ Uses Scrypt for key derivation and AES-GCM for authenticated encryption.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Generate an RSA private and public key pair.
 
-:return: A tuple containing the private key and public key in PEM format.
-:rtype: tuple(bytes, bytes)
-</pre> 
+<p>Generate an RSA private and public key pair. </p>
+<dl class="section return"><dt>Returns</dt><dd>: A tuple containing the private key and public key in PEM format. @rtype: tuple[bytes, bytes] </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

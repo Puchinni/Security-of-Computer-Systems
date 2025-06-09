@@ -1,24 +1,29 @@
 \doxysection{gui.\+GUI Class Reference}
 \hypertarget{classgui_1_1_g_u_i}{}\label{classgui_1_1_g_u_i}\index{gui.GUI@{gui.GUI}}
+
+
+Main graphical user interface class.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_a1a4e5946f5acd8b03b141ecb36906568}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classgui_1_1_g_u_i_a1451c27b76fee50e7ac613db1daa1e70}{window}})
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the \doxylink{classgui_1_1_g_u_i}{GUI} and set up widgets. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_a07cfc5c120bc725a84f1a2ae952b4eb2}{poll\+\_\+usb\+\_\+drives}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em Periodically poll for USB drives and update the UI. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_ad215e632b30b974c35d4837dda645a22}{update\+\_\+drive\+\_\+buttons}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em Update radio buttons for detected USB drives. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_ae7dde7a4442779fa670fecf961998101}{generate\+\_\+keys}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em Generate RSA key pair and save them to the selected USB drive. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_a4036d7a76a02c84790ca033c069951cb}{save\+\_\+keys}} (self, private\+\_\+key, public\+\_\+key)
-\item 
+\begin{DoxyCompactList}\small\item\em Prompt user to select paths and save the private and public keys. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_ab7e07fe9d2079e86c46c610799ad3c54}{decrypt\+\_\+private\+\_\+key}} (self, encrypted\+\_\+data, pin)
-\item 
+\begin{DoxyCompactList}\small\item\em Decrypt the private key using the provided PIN. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_aab4862e7f5e184d009a0ee3a316754a1}{sign\+\_\+pdf}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em Sign a selected PDF file using the private key stored on USB. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgui_1_1_g_u_i_a367d455930d675b0e5e621714f680077}{verify\+\_\+signature}} (self)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Verify the digital signature of a selected PDF file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -49,11 +54,9 @@ list \mbox{\hyperlink{classgui_1_1_g_u_i_adc9cd8096ca2406d030ad29a21150774}{know
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}Main graphical user interface class.
+Main graphical user interface class. 
 
-Handles RSA key generation, PDF signing, and signature verification using a USB drive.
-\end{DoxyVerb}
- 
+Handles RSA key generation, PDF signing, and signature verification using a USB drive. 
 
 \label{doc-constructors}
 \Hypertarget{classgui_1_1_g_u_i_doc-constructors}
@@ -64,11 +67,16 @@ Handles RSA key generation, PDF signing, and signature verification using a USB 
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a1a4e5946f5acd8b03b141ecb36906568} 
 gui.\+GUI.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{window}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Initialize the GUI and set up widgets.
 
-:param window: The main tkinter window.
-\end{DoxyVerb}
- 
+
+Initialize the \doxylink{classgui_1_1_g_u_i}{GUI} and set up widgets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The main tkinter window. \\
+\hline
+\end{DoxyParams}
+
 
 \label{doc-func-members}
 \Hypertarget{classgui_1_1_g_u_i_doc-func-members}
@@ -79,70 +87,88 @@ gui.\+GUI.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ab7e07fe9d2079e86c46c610799ad3c54} 
 gui.\+GUI.\+decrypt\+\_\+private\+\_\+key (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{encrypted\+\_\+data}{, }\item[{}]{pin}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Decrypt the private key using the provided PIN.
 
-:param encrypted_data: Encrypted key data read from file.
-:param pin: User's PIN as a string.
-:return: Decrypted private key in bytes.
-\end{DoxyVerb}
- \Hypertarget{classgui_1_1_g_u_i_ae7dde7a4442779fa670fecf961998101}\index{gui.GUI@{gui.GUI}!generate\_keys@{generate\_keys}}
+
+Decrypt the private key using the provided PIN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted\+\_\+data} & Encrypted key data read from file. \\
+\hline
+{\em pin} & User\textquotesingle{}s PIN as a string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: Decrypted private key in bytes. @rtype\+: bytes 
+\end{DoxyReturn}
+\Hypertarget{classgui_1_1_g_u_i_ae7dde7a4442779fa670fecf961998101}\index{gui.GUI@{gui.GUI}!generate\_keys@{generate\_keys}}
 \index{generate\_keys@{generate\_keys}!gui.GUI@{gui.GUI}}
 \doxysubsubsection{\texorpdfstring{generate\_keys()}{generate\_keys()}}
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ae7dde7a4442779fa670fecf961998101} 
 gui.\+GUI.\+generate\+\_\+keys (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Generate RSA key pair and save them to the selected USB drive.
 
-Encrypts the private key using the user's PIN.
-\end{DoxyVerb}
- \Hypertarget{classgui_1_1_g_u_i_a07cfc5c120bc725a84f1a2ae952b4eb2}\index{gui.GUI@{gui.GUI}!poll\_usb\_drives@{poll\_usb\_drives}}
+
+Generate RSA key pair and save them to the selected USB drive. 
+
+Encrypts the private key using the user\textquotesingle{}s PIN. \Hypertarget{classgui_1_1_g_u_i_a07cfc5c120bc725a84f1a2ae952b4eb2}\index{gui.GUI@{gui.GUI}!poll\_usb\_drives@{poll\_usb\_drives}}
 \index{poll\_usb\_drives@{poll\_usb\_drives}!gui.GUI@{gui.GUI}}
 \doxysubsubsection{\texorpdfstring{poll\_usb\_drives()}{poll\_usb\_drives()}}
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a07cfc5c120bc725a84f1a2ae952b4eb2} 
 gui.\+GUI.\+poll\+\_\+usb\+\_\+drives (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Periodically poll for USB drives and update the UI.
-\end{DoxyVerb}
- \Hypertarget{classgui_1_1_g_u_i_a4036d7a76a02c84790ca033c069951cb}\index{gui.GUI@{gui.GUI}!save\_keys@{save\_keys}}
+
+
+Periodically poll for USB drives and update the UI. 
+
+\Hypertarget{classgui_1_1_g_u_i_a4036d7a76a02c84790ca033c069951cb}\index{gui.GUI@{gui.GUI}!save\_keys@{save\_keys}}
 \index{save\_keys@{save\_keys}!gui.GUI@{gui.GUI}}
 \doxysubsubsection{\texorpdfstring{save\_keys()}{save\_keys()}}
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a4036d7a76a02c84790ca033c069951cb} 
 gui.\+GUI.\+save\+\_\+keys (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{private\+\_\+key}{, }\item[{}]{public\+\_\+key}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Prompt user to select paths and save the private and public keys.
 
-:param private_key: The encrypted private key in bytes.
-:param public_key: The public key in PEM format.
-\end{DoxyVerb}
- \Hypertarget{classgui_1_1_g_u_i_aab4862e7f5e184d009a0ee3a316754a1}\index{gui.GUI@{gui.GUI}!sign\_pdf@{sign\_pdf}}
+
+Prompt user to select paths and save the private and public keys. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em private\+\_\+key} & The encrypted private key in bytes. \\
+\hline
+{\em public\+\_\+key} & The public key in PEM format. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_g_u_i_aab4862e7f5e184d009a0ee3a316754a1}\index{gui.GUI@{gui.GUI}!sign\_pdf@{sign\_pdf}}
 \index{sign\_pdf@{sign\_pdf}!gui.GUI@{gui.GUI}}
 \doxysubsubsection{\texorpdfstring{sign\_pdf()}{sign\_pdf()}}
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_aab4862e7f5e184d009a0ee3a316754a1} 
 gui.\+GUI.\+sign\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Sign a selected PDF file using the private key stored on USB.
 
-Prompts the user for a PIN and file paths, then saves the signed PDF.
-\end{DoxyVerb}
- \Hypertarget{classgui_1_1_g_u_i_ad215e632b30b974c35d4837dda645a22}\index{gui.GUI@{gui.GUI}!update\_drive\_buttons@{update\_drive\_buttons}}
+
+Sign a selected PDF file using the private key stored on USB. 
+
+Prompts the user for a PIN and file paths, then saves the signed PDF. \Hypertarget{classgui_1_1_g_u_i_ad215e632b30b974c35d4837dda645a22}\index{gui.GUI@{gui.GUI}!update\_drive\_buttons@{update\_drive\_buttons}}
 \index{update\_drive\_buttons@{update\_drive\_buttons}!gui.GUI@{gui.GUI}}
 \doxysubsubsection{\texorpdfstring{update\_drive\_buttons()}{update\_drive\_buttons()}}
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ad215e632b30b974c35d4837dda645a22} 
 gui.\+GUI.\+update\+\_\+drive\+\_\+buttons (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Update radio buttons for detected USB drives.
-\end{DoxyVerb}
- \Hypertarget{classgui_1_1_g_u_i_a367d455930d675b0e5e621714f680077}\index{gui.GUI@{gui.GUI}!verify\_signature@{verify\_signature}}
+
+
+Update radio buttons for detected USB drives. 
+
+\Hypertarget{classgui_1_1_g_u_i_a367d455930d675b0e5e621714f680077}\index{gui.GUI@{gui.GUI}!verify\_signature@{verify\_signature}}
 \index{verify\_signature@{verify\_signature}!gui.GUI@{gui.GUI}}
 \doxysubsubsection{\texorpdfstring{verify\_signature()}{verify\_signature()}}
 {\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a367d455930d675b0e5e621714f680077} 
 gui.\+GUI.\+verify\+\_\+signature (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Verify the digital signature of a selected PDF file.
 
-Uses a public key in PEM format.
-\end{DoxyVerb}
- 
+
+Verify the digital signature of a selected PDF file. 
+
+Uses a public key in PEM format. 
 
 \label{doc-variable-members}
 \Hypertarget{classgui_1_1_g_u_i_doc-variable-members}

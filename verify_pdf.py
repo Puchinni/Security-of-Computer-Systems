@@ -1,7 +1,7 @@
-"""
-PDF Signature Verification Module
-
-This module provides a function to verify digital signatures embedded in the
+"""!
+@file verify_pdf.py
+@brief PDF Signature Verification Module
+@details This module provides a function to verify digital signatures embedded in the
 metadata of PDF files. It uses RSA and SHA-256 for verification.
 """
 
@@ -13,19 +13,19 @@ from io import BytesIO
 
 
 def verify_pdf_signature(pdf_path, public_key_bytes):
-    """
+    """!
     Verify the digital signature embedded in the metadata of a PDF file.
 
     This function reads a PDF, extracts the `/Signature` entry from its metadata,
     and verifies it using the provided public key. It reconstructs the PDF content
     without the signature and compares its SHA-256 hash to the decrypted signature.
 
-    :param pdf_path: Path to the PDF file to verify.
-    :type pdf_path: str
-    :param public_key_bytes: Public key in PEM format as bytes.
-    :type public_key_bytes: bytes
-    :return: True if the signature is valid, False otherwise.
-    :rtype: bool
+    @param pdf_path: Path to the PDF file to verify.
+    @type pdf_path: str
+    @param public_key_bytes: Public key in PEM format as bytes.
+    @type public_key_bytes: bytes
+    @return: True if the signature is valid, False otherwise.
+    @rtype: bool
     """
     reader = PyPDF2.PdfReader(pdf_path)
     metadata = reader.metadata

@@ -4,16 +4,8 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacepdf_add68f14c842e4b1423e7c6daf7bed6ab}{sign\+\_\+pdf}} (pdf\+\_\+path, private\+\_\+key\+\_\+bytes)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sign a PDF file with a private RSA key. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-
-\doxysubsection{Detailed Description}
-\begin{DoxyVerb}PDF signing module.
-
-This module provides a function to sign PDF files using a private RSA key and embed the signature
-into the PDF metadata.
-\end{DoxyVerb}
- 
 
 \label{doc-func-members}
 \Hypertarget{namespacepdf_doc-func-members}
@@ -24,17 +16,19 @@ into the PDF metadata.
 {\footnotesize\ttfamily \label{namespacepdf_add68f14c842e4b1423e7c6daf7bed6ab} 
 pdf.\+sign\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{pdf\+\_\+path}{, }\item[{}]{private\+\_\+key\+\_\+bytes}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Sign a PDF file with a private RSA key.
 
-This function creates a hash of the PDF (excluding any prior signature),
-signs the hash using the private key, and embeds the hexadecimal signature
-into the PDF metadata under the key `/Signature`.
 
-:param pdf_path: Path to the input PDF file.
-:type pdf_path: str
-:param private_key_bytes: Private RSA key in PEM format as bytes.
-:type private_key_bytes: bytes
-:return: Path to the newly signed PDF file.
-:rtype: str
-\end{DoxyVerb}
- 
+Sign a PDF file with a private RSA key. 
+
+This function creates a SHA-\/256 hash of the PDF content (excluding any existing signature), signs the hash using the provided private RSA key, and embeds the hexadecimal signature into the PDF\textquotesingle{}s metadata under the key {\ttfamily /\+Signature}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdf\+\_\+path} & Path to the input PDF file. @type pdf\+\_\+path\+: str \\
+\hline
+{\em private\+\_\+key\+\_\+bytes} & Private RSA key in PEM format as bytes. @type private\+\_\+key\+\_\+bytes\+: bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: Path to the newly signed PDF file. @rtype\+: str 
+\end{DoxyReturn}

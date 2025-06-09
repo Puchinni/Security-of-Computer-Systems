@@ -1,26 +1,28 @@
 \doxysection{usb\+\_\+watch Namespace Reference}
 \hypertarget{namespaceusb__watch}{}\label{namespaceusb__watch}\index{usb\_watch@{usb\_watch}}
+
+
+USB Drive Detection Module.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classusb__watch_1_1_usb_drive}{Usb\+Drive}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A class representing a mounted USB drive. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 list\mbox{[}\mbox{\hyperlink{classusb__watch_1_1_usb_drive}{Usb\+Drive}}\mbox{]} \mbox{\hyperlink{namespaceusb__watch_ab77d5cd6a7f4234e898b08157598e859}{get\+\_\+usb\+\_\+mounts}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get a list of currently mounted USB drives. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceusb__watch_a27e2c5965d0c51bac18a9b72c85d4d10}{get\+\_\+usb\+\_\+update}} (list\mbox{[}\mbox{\hyperlink{classusb__watch_1_1_usb_drive}{Usb\+Drive}}\mbox{]} known)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Compare the current list of mounted USB drives with a previously known list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}USB Drive Detection Module
+USB Drive Detection Module. 
 
-This module provides functionality to detect mounted USB drives using `psutil`
-and to track changes such as USB plug-in or removal events.
-\end{DoxyVerb}
- 
+This module provides functionality to detect mounted USB drives using {\ttfamily psutil} and to track changes such as USB plug-\/in or removal events. 
 
 \label{doc-func-members}
 \Hypertarget{namespaceusb__watch_doc-func-members}
@@ -31,27 +33,32 @@ and to track changes such as USB plug-in or removal events.
 {\footnotesize\ttfamily \label{namespaceusb__watch_ab77d5cd6a7f4234e898b08157598e859} 
  list\mbox{[}\mbox{\hyperlink{classusb__watch_1_1_usb_drive}{Usb\+Drive}}\mbox{]} usb\+\_\+watch.\+get\+\_\+usb\+\_\+mounts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Get a list of currently mounted USB drives.
 
-This filters partitions by looking for "removable" in the mount options
-or "media" in the mount point path.
 
-:return: List of currently mounted USB drives.
-:rtype: list[UsbDrive]
-\end{DoxyVerb}
- \Hypertarget{namespaceusb__watch_a27e2c5965d0c51bac18a9b72c85d4d10}\index{usb\_watch@{usb\_watch}!get\_usb\_update@{get\_usb\_update}}
+Get a list of currently mounted USB drives. 
+
+This filters partitions by looking for "{}removable"{} in the mount options or "{}media"{} in the mount point path.
+
+\begin{DoxyReturn}{Returns}
+\+: List of currently mounted USB drives. @rtype\+: list\mbox{[}\doxylink{classusb__watch_1_1_usb_drive}{Usb\+Drive}\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{namespaceusb__watch_a27e2c5965d0c51bac18a9b72c85d4d10}\index{usb\_watch@{usb\_watch}!get\_usb\_update@{get\_usb\_update}}
 \index{get\_usb\_update@{get\_usb\_update}!usb\_watch@{usb\_watch}}
 \doxysubsubsection{\texorpdfstring{get\_usb\_update()}{get\_usb\_update()}}
 {\footnotesize\ttfamily \label{namespaceusb__watch_a27e2c5965d0c51bac18a9b72c85d4d10} 
 usb\+\_\+watch.\+get\+\_\+usb\+\_\+update (\begin{DoxyParamCaption}\item[{list\mbox{[}\mbox{\hyperlink{classusb__watch_1_1_usb_drive}{Usb\+Drive}}\mbox{]}}]{known}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Compare the current list of mounted USB drives with a previously known list.
+
+
+Compare the current list of mounted USB drives with a previously known list. 
 
 This function detects which USB drives were added or removed.
 
-:param known: A previously known list of UsbDrive instances.
-:type known: list[UsbDrive]
-:return: A tuple of (current_list, has_changed, added_list)
-:rtype: tuple[list[UsbDrive], bool, list[UsbDrive]]
-\end{DoxyVerb}
- 
+
+\begin{DoxyParams}{Parameters}
+{\em known} & A previously known list of \doxylink{classusb__watch_1_1_usb_drive}{Usb\+Drive} instances. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: A tuple of (current\+\_\+list, has\+\_\+changed, added\+\_\+list) @rtype\+: tuple\mbox{[}list\mbox{[}\doxylink{classusb__watch_1_1_usb_drive}{Usb\+Drive}\mbox{]}, bool, list\mbox{[}\doxylink{classusb__watch_1_1_usb_drive}{Usb\+Drive}\mbox{]}\mbox{]} 
+\end{DoxyReturn}

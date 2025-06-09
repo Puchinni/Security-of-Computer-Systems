@@ -91,17 +91,28 @@ $(function(){initNavTree('classgui_1_1_g_u_i.html','','classgui_1_1_g_u_i-member
   <div class="headertitle"><div class="title">gui.GUI Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Main graphical user interface class.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1a4e5946f5acd8b03b141ecb36906568" id="r_a1a4e5946f5acd8b03b141ecb36906568"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a4e5946f5acd8b03b141ecb36906568">__init__</a> (self, <a class="el" href="#a1451c27b76fee50e7ac613db1daa1e70">window</a>)</td></tr>
+<tr class="memdesc:a1a4e5946f5acd8b03b141ecb36906568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="classgui_1_1_g_u_i.html" title="Main graphical user interface class.">GUI</a> and set up widgets.  <br /></td></tr>
 <tr class="memitem:a07cfc5c120bc725a84f1a2ae952b4eb2" id="r_a07cfc5c120bc725a84f1a2ae952b4eb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07cfc5c120bc725a84f1a2ae952b4eb2">poll_usb_drives</a> (self)</td></tr>
+<tr class="memdesc:a07cfc5c120bc725a84f1a2ae952b4eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodically poll for USB drives and update the UI.  <br /></td></tr>
 <tr class="memitem:ad215e632b30b974c35d4837dda645a22" id="r_ad215e632b30b974c35d4837dda645a22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad215e632b30b974c35d4837dda645a22">update_drive_buttons</a> (self)</td></tr>
+<tr class="memdesc:ad215e632b30b974c35d4837dda645a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update radio buttons for detected USB drives.  <br /></td></tr>
 <tr class="memitem:ae7dde7a4442779fa670fecf961998101" id="r_ae7dde7a4442779fa670fecf961998101"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7dde7a4442779fa670fecf961998101">generate_keys</a> (self)</td></tr>
+<tr class="memdesc:ae7dde7a4442779fa670fecf961998101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate RSA key pair and save them to the selected USB drive.  <br /></td></tr>
 <tr class="memitem:a4036d7a76a02c84790ca033c069951cb" id="r_a4036d7a76a02c84790ca033c069951cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4036d7a76a02c84790ca033c069951cb">save_keys</a> (self, private_key, public_key)</td></tr>
+<tr class="memdesc:a4036d7a76a02c84790ca033c069951cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prompt user to select paths and save the private and public keys.  <br /></td></tr>
 <tr class="memitem:ab7e07fe9d2079e86c46c610799ad3c54" id="r_ab7e07fe9d2079e86c46c610799ad3c54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7e07fe9d2079e86c46c610799ad3c54">decrypt_private_key</a> (self, encrypted_data, pin)</td></tr>
+<tr class="memdesc:ab7e07fe9d2079e86c46c610799ad3c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypt the private key using the provided PIN.  <br /></td></tr>
 <tr class="memitem:aab4862e7f5e184d009a0ee3a316754a1" id="r_aab4862e7f5e184d009a0ee3a316754a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab4862e7f5e184d009a0ee3a316754a1">sign_pdf</a> (self)</td></tr>
+<tr class="memdesc:aab4862e7f5e184d009a0ee3a316754a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sign a selected PDF file using the private key stored on USB.  <br /></td></tr>
 <tr class="memitem:a367d455930d675b0e5e621714f680077" id="r_a367d455930d675b0e5e621714f680077"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a367d455930d675b0e5e621714f680077">verify_signature</a> (self)</td></tr>
+<tr class="memdesc:a367d455930d675b0e5e621714f680077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify the digital signature of a selected PDF file.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -119,10 +130,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad58a463f8bff91a463dd507fc136fd3d" id="r_ad58a463f8bff91a463dd507fc136fd3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad58a463f8bff91a463dd507fc136fd3d">poll_usb_drives</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">Main graphical user interface class.
-
-Handles RSA key generation, PDF signing, and signature verification using a USB drive.
-</pre> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p>Main graphical user interface class. </p>
+<p>Handles RSA key generation, PDF signing, and signature verification using a USB drive. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1a4e5946f5acd8b03b141ecb36906568" name="a1a4e5946f5acd8b03b141ecb36906568"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a4e5946f5acd8b03b141ecb36906568">&#9670;&#160;</a></span>__init__()</h2>
 
@@ -141,10 +151,15 @@ Handles RSA key generation, PDF signing, and signature verification using a USB 
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Initialize the GUI and set up widgets.
 
-:param window: The main tkinter window.
-</pre> 
+<p>Initialize the <a class="el" href="classgui_1_1_g_u_i.html" title="Main graphical user interface class.">GUI</a> and set up widgets. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The main tkinter window. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
@@ -171,12 +186,17 @@ Handles RSA key generation, PDF signing, and signature verification using a USB 
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Decrypt the private key using the provided PIN.
 
-:param encrypted_data: Encrypted key data read from file.
-:param pin: User's PIN as a string.
-:return: Decrypted private key in bytes.
-</pre> 
+<p>Decrypt the private key using the provided PIN. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">encrypted_data</td><td>Encrypted key data read from file. </td></tr>
+    <tr><td class="paramname">pin</td><td>User's PIN as a string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: Decrypted private key in bytes. @rtype: bytes </dd></dl>
+
 </div>
 </div>
 <a id="ae7dde7a4442779fa670fecf961998101" name="ae7dde7a4442779fa670fecf961998101"></a>
@@ -193,10 +213,10 @@ Handles RSA key generation, PDF signing, and signature verification using a USB 
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Generate RSA key pair and save them to the selected USB drive.
 
-Encrypts the private key using the user's PIN.
-</pre> 
+<p>Generate RSA key pair and save them to the selected USB drive. </p>
+<p>Encrypts the private key using the user's PIN. </p>
+
 </div>
 </div>
 <a id="a07cfc5c120bc725a84f1a2ae952b4eb2" name="a07cfc5c120bc725a84f1a2ae952b4eb2"></a>
@@ -213,8 +233,9 @@ Encrypts the private key using the user's PIN.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Periodically poll for USB drives and update the UI.
-</pre> 
+
+<p>Periodically poll for USB drives and update the UI. </p>
+
 </div>
 </div>
 <a id="a4036d7a76a02c84790ca033c069951cb" name="a4036d7a76a02c84790ca033c069951cb"></a>
@@ -240,11 +261,16 @@ Encrypts the private key using the user's PIN.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Prompt user to select paths and save the private and public keys.
 
-:param private_key: The encrypted private key in bytes.
-:param public_key: The public key in PEM format.
-</pre> 
+<p>Prompt user to select paths and save the private and public keys. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">private_key</td><td>The encrypted private key in bytes. </td></tr>
+    <tr><td class="paramname">public_key</td><td>The public key in PEM format. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aab4862e7f5e184d009a0ee3a316754a1" name="aab4862e7f5e184d009a0ee3a316754a1"></a>
@@ -261,10 +287,10 @@ Encrypts the private key using the user's PIN.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Sign a selected PDF file using the private key stored on USB.
 
-Prompts the user for a PIN and file paths, then saves the signed PDF.
-</pre> 
+<p>Sign a selected PDF file using the private key stored on USB. </p>
+<p>Prompts the user for a PIN and file paths, then saves the signed PDF. </p>
+
 </div>
 </div>
 <a id="ad215e632b30b974c35d4837dda645a22" name="ad215e632b30b974c35d4837dda645a22"></a>
@@ -281,8 +307,9 @@ Prompts the user for a PIN and file paths, then saves the signed PDF.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Update radio buttons for detected USB drives.
-</pre> 
+
+<p>Update radio buttons for detected USB drives. </p>
+
 </div>
 </div>
 <a id="a367d455930d675b0e5e621714f680077" name="a367d455930d675b0e5e621714f680077"></a>
@@ -299,10 +326,10 @@ Prompts the user for a PIN and file paths, then saves the signed PDF.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Verify the digital signature of a selected PDF file.
 
-Uses a public key in PEM format.
-</pre> 
+<p>Verify the digital signature of a selected PDF file. </p>
+<p>Uses a public key in PEM format. </p>
+
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>

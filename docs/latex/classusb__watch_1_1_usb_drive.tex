@@ -1,16 +1,21 @@
 \doxysection{usb\+\_\+watch.\+Usb\+Drive Class Reference}
 \hypertarget{classusb__watch_1_1_usb_drive}{}\label{classusb__watch_1_1_usb_drive}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
+
+
+A class representing a mounted USB drive.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classusb__watch_1_1_usb_drive_ae8968c4697c317fb960466bdd94486be}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, str \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a29ab38ad1ac29ff7e6f507cebe9783b7}{device}}, str \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a2c9b4376c70cbd54c98c6af02feee8e6}{mountpoint}})
 \item 
 \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a1a63ebad374acba2672348054398bb93}{\+\_\+\+\_\+str\+\_\+\+\_\+}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em Return a human-\/readable string representation of the USB drive. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classusb__watch_1_1_usb_drive_aa5e1c60800fa56fdd9fd465772e07c20}{\+\_\+\+\_\+repr\+\_\+\+\_\+}} (self)
-\item 
+\begin{DoxyCompactList}\small\item\em Return a formal string representation of the USB drive. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a0cab588f085f052dc73feccdbfeef4f4}{\+\_\+\+\_\+eq\+\_\+\+\_\+}} (self, other)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Check if two \doxylink{classusb__watch_1_1_usb_drive}{Usb\+Drive} instances represent the same device. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,14 +28,16 @@ list \mbox{\hyperlink{classusb__watch_1_1_usb_drive_a192f68e29fb52e474f314e3d3e7
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyVerb}A class representing a mounted USB drive.
+A class representing a mounted USB drive. 
 
-:param device: The device path (e.g., /dev/sdb1).
-:type device: str
-:param mountpoint: The mount point of the device (e.g., /media/user/USB).
-:type mountpoint: str
-\end{DoxyVerb}
- 
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The device path (e.\+g., /dev/sdb1). \\
+\hline
+{\em mountpoint} & The mount point of the device (e.\+g., /media/user/\+USB). \\
+\hline
+\end{DoxyParams}
+
 
 \label{doc-constructors}
 \Hypertarget{classusb__watch_1_1_usb_drive_doc-constructors}
@@ -52,36 +59,45 @@ usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaptio
 {\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_a0cab588f085f052dc73feccdbfeef4f4} 
 usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+eq\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{other}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Check if two UsbDrive instances represent the same device.
 
-:param other: Another UsbDrive instance.
-:type other: UsbDrive
-:return: True if device and mountpoint match, False otherwise.
-:rtype: bool
-\end{DoxyVerb}
- \Hypertarget{classusb__watch_1_1_usb_drive_aa5e1c60800fa56fdd9fd465772e07c20}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_repr\_\_@{\_\_repr\_\_}}
+
+Check if two \doxylink{classusb__watch_1_1_usb_drive}{Usb\+Drive} instances represent the same device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \doxylink{classusb__watch_1_1_usb_drive}{Usb\+Drive} instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: True if device and mountpoint match, False otherwise. @rtype\+: bool 
+\end{DoxyReturn}
+\Hypertarget{classusb__watch_1_1_usb_drive_aa5e1c60800fa56fdd9fd465772e07c20}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_repr\_\_@{\_\_repr\_\_}}
 \index{\_\_repr\_\_@{\_\_repr\_\_}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
 \doxysubsubsection{\texorpdfstring{\_\_repr\_\_()}{\_\_repr\_\_()}}
 {\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_aa5e1c60800fa56fdd9fd465772e07c20} 
 usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+repr\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Return a formal string representation of the USB drive.
 
-:return: Same as __str__.
-:rtype: str
-\end{DoxyVerb}
- \Hypertarget{classusb__watch_1_1_usb_drive_a1a63ebad374acba2672348054398bb93}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_str\_\_@{\_\_str\_\_}}
+
+Return a formal string representation of the USB drive. 
+
+\begin{DoxyReturn}{Returns}
+\+: Same as {\bfseries{str}}. @rtype\+: str 
+\end{DoxyReturn}
+\Hypertarget{classusb__watch_1_1_usb_drive_a1a63ebad374acba2672348054398bb93}\index{usb\_watch.UsbDrive@{usb\_watch.UsbDrive}!\_\_str\_\_@{\_\_str\_\_}}
 \index{\_\_str\_\_@{\_\_str\_\_}!usb\_watch.UsbDrive@{usb\_watch.UsbDrive}}
 \doxysubsubsection{\texorpdfstring{\_\_str\_\_()}{\_\_str\_\_()}}
 {\footnotesize\ttfamily \label{classusb__watch_1_1_usb_drive_a1a63ebad374acba2672348054398bb93} 
 usb\+\_\+watch.\+Usb\+Drive.\+\_\+\+\_\+str\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Return a human-readable string representation of the USB drive.
 
-:return: String in the format "device: <device>, mountpoint: <mountpoint>".
-:rtype: str
-\end{DoxyVerb}
- 
+
+Return a human-\/readable string representation of the USB drive. 
+
+\begin{DoxyReturn}{Returns}
+\+: String in the format "{}device\+: $<$device$>$, mountpoint\+: $<$mountpoint$>$"{}. @rtype\+: str 
+\end{DoxyReturn}
+
 
 \label{doc-variable-members}
 \Hypertarget{classusb__watch_1_1_usb_drive_doc-variable-members}

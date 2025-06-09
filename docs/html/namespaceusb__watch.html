@@ -91,22 +91,26 @@ $(function(){initNavTree('namespaceusb__watch.html','',''); });
   <div class="headertitle"><div class="title">usb_watch Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>USB Drive Detection Module.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:UsbDrive" id="r_UsbDrive"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusb__watch_1_1_usb_drive.html">UsbDrive</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class representing a mounted USB drive.  <a href="classusb__watch_1_1_usb_drive.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab77d5cd6a7f4234e898b08157598e859" id="r_ab77d5cd6a7f4234e898b08157598e859"><td class="memItemLeft" align="right" valign="top">list[<a class="el" href="classusb__watch_1_1_usb_drive.html">UsbDrive</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab77d5cd6a7f4234e898b08157598e859">get_usb_mounts</a> ()</td></tr>
+<tr class="memdesc:ab77d5cd6a7f4234e898b08157598e859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of currently mounted USB drives.  <br /></td></tr>
 <tr class="memitem:a27e2c5965d0c51bac18a9b72c85d4d10" id="r_a27e2c5965d0c51bac18a9b72c85d4d10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27e2c5965d0c51bac18a9b72c85d4d10">get_usb_update</a> (list[<a class="el" href="classusb__watch_1_1_usb_drive.html">UsbDrive</a>] known)</td></tr>
+<tr class="memdesc:a27e2c5965d0c51bac18a9b72c85d4d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare the current list of mounted USB drives with a previously known list.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">USB Drive Detection Module
-
-This module provides functionality to detect mounted USB drives using `psutil`
-and to track changes such as USB plug-in or removal events.
-</pre> </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<div class="textblock"><p>USB Drive Detection Module. </p>
+<p>This module provides functionality to detect mounted USB drives using <span class="tt">psutil</span> and to track changes such as USB plug-in or removal events. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="ab77d5cd6a7f4234e898b08157598e859" name="ab77d5cd6a7f4234e898b08157598e859"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab77d5cd6a7f4234e898b08157598e859">&#9670;&#160;</a></span>get_usb_mounts()</h2>
 
@@ -121,14 +125,11 @@ and to track changes such as USB plug-in or removal events.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Get a list of currently mounted USB drives.
 
-This filters partitions by looking for "removable" in the mount options
-or "media" in the mount point path.
+<p>Get a list of currently mounted USB drives. </p>
+<p>This filters partitions by looking for "removable" in the mount options or "media" in the mount point path.</p>
+<dl class="section return"><dt>Returns</dt><dd>: List of currently mounted USB drives. @rtype: list[<a class="el" href="classusb__watch_1_1_usb_drive.html" title="A class representing a mounted USB drive.">UsbDrive</a>] </dd></dl>
 
-:return: List of currently mounted USB drives.
-:rtype: list[UsbDrive]
-</pre> 
 </div>
 </div>
 <a id="a27e2c5965d0c51bac18a9b72c85d4d10" name="a27e2c5965d0c51bac18a9b72c85d4d10"></a>
@@ -145,15 +146,17 @@ or "media" in the mount point path.
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Compare the current list of mounted USB drives with a previously known list.
 
-This function detects which USB drives were added or removed.
+<p>Compare the current list of mounted USB drives with a previously known list. </p>
+<p>This function detects which USB drives were added or removed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">known</td><td>A previously known list of <a class="el" href="classusb__watch_1_1_usb_drive.html" title="A class representing a mounted USB drive.">UsbDrive</a> instances. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: A tuple of (current_list, has_changed, added_list) @rtype: tuple[list[<a class="el" href="classusb__watch_1_1_usb_drive.html" title="A class representing a mounted USB drive.">UsbDrive</a>], bool, list[<a class="el" href="classusb__watch_1_1_usb_drive.html" title="A class representing a mounted USB drive.">UsbDrive</a>]] </dd></dl>
 
-:param known: A previously known list of UsbDrive instances.
-:type known: list[UsbDrive]
-:return: A tuple of (current_list, has_changed, added_list)
-:rtype: tuple[list[UsbDrive], bool, list[UsbDrive]]
-</pre> 
 </div>
 </div>
 </div><!-- contents -->

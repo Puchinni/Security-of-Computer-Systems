@@ -91,13 +91,19 @@ $(function(){initNavTree('classusb__watch_1_1_usb_drive.html','','classusb__watc
   <div class="headertitle"><div class="title">usb_watch.UsbDrive Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class representing a mounted USB drive.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8968c4697c317fb960466bdd94486be" id="r_ae8968c4697c317fb960466bdd94486be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8968c4697c317fb960466bdd94486be">__init__</a> (self, str <a class="el" href="#a29ab38ad1ac29ff7e6f507cebe9783b7">device</a>, str <a class="el" href="#a2c9b4376c70cbd54c98c6af02feee8e6">mountpoint</a>)</td></tr>
 <tr class="memitem:a1a63ebad374acba2672348054398bb93" id="r_a1a63ebad374acba2672348054398bb93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a63ebad374acba2672348054398bb93">__str__</a> (self)</td></tr>
+<tr class="memdesc:a1a63ebad374acba2672348054398bb93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a human-readable string representation of the USB drive.  <br /></td></tr>
 <tr class="memitem:aa5e1c60800fa56fdd9fd465772e07c20" id="r_aa5e1c60800fa56fdd9fd465772e07c20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5e1c60800fa56fdd9fd465772e07c20">__repr__</a> (self)</td></tr>
+<tr class="memdesc:aa5e1c60800fa56fdd9fd465772e07c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a formal string representation of the USB drive.  <br /></td></tr>
 <tr class="memitem:a0cab588f085f052dc73feccdbfeef4f4" id="r_a0cab588f085f052dc73feccdbfeef4f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cab588f085f052dc73feccdbfeef4f4">__eq__</a> (self, other)</td></tr>
+<tr class="memdesc:a0cab588f085f052dc73feccdbfeef4f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two <a class="el" href="classusb__watch_1_1_usb_drive.html" title="A class representing a mounted USB drive.">UsbDrive</a> instances represent the same device.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -106,13 +112,15 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a192f68e29fb52e474f314e3d3e7477a3" id="r_a192f68e29fb52e474f314e3d3e7477a3"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a192f68e29fb52e474f314e3d3e7477a3">keys</a> = []</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">A class representing a mounted USB drive.
-
-:param device: The device path (e.g., /dev/sdb1).
-:type device: str
-:param mountpoint: The mount point of the device (e.g., /media/user/USB).
-:type mountpoint: str
-</pre> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p>A class representing a mounted USB drive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>The device path (e.g., /dev/sdb1). </td></tr>
+    <tr><td class="paramname">mountpoint</td><td>The mount point of the device (e.g., /media/user/USB). </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae8968c4697c317fb960466bdd94486be" name="ae8968c4697c317fb960466bdd94486be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8968c4697c317fb960466bdd94486be">&#9670;&#160;</a></span>__init__()</h2>
 
@@ -158,13 +166,16 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Check if two UsbDrive instances represent the same device.
 
-:param other: Another UsbDrive instance.
-:type other: UsbDrive
-:return: True if device and mountpoint match, False otherwise.
-:rtype: bool
-</pre> 
+<p>Check if two <a class="el" href="classusb__watch_1_1_usb_drive.html" title="A class representing a mounted USB drive.">UsbDrive</a> instances represent the same device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Another <a class="el" href="classusb__watch_1_1_usb_drive.html" title="A class representing a mounted USB drive.">UsbDrive</a> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: True if device and mountpoint match, False otherwise. @rtype: bool </dd></dl>
+
 </div>
 </div>
 <a id="aa5e1c60800fa56fdd9fd465772e07c20" name="aa5e1c60800fa56fdd9fd465772e07c20"></a>
@@ -181,11 +192,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Return a formal string representation of the USB drive.
 
-:return: Same as __str__.
-:rtype: str
-</pre> 
+<p>Return a formal string representation of the USB drive. </p>
+<dl class="section return"><dt>Returns</dt><dd>: Same as <b>str</b>. @rtype: str </dd></dl>
+
 </div>
 </div>
 <a id="a1a63ebad374acba2672348054398bb93" name="a1a63ebad374acba2672348054398bb93"></a>
@@ -202,11 +212,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Return a human-readable string representation of the USB drive.
 
-:return: String in the format "device: &lt;device&gt;, mountpoint: &lt;mountpoint&gt;".
-:rtype: str
-</pre> 
+<p>Return a human-readable string representation of the USB drive. </p>
+<dl class="section return"><dt>Returns</dt><dd>: String in the format "device: &lt;device&gt;, mountpoint: &lt;mountpoint&gt;". @rtype: str </dd></dl>
+
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
